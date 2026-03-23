@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Certificados Futuristas</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    margin:0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg,#0f0f1a,#0a0a1f);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* Partículas de fundo */
+body::before{
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle, rgba(0,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index:-1;
+}
+
+/* Título futurista */
+h1{
+    text-align:center;
+    font-size:3em;
+    margin:30px 0 10px;
+    color:#0ff;
+    text-shadow:0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+/* Galeria */
+.galeria{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+    padding:20px;
+}
+
+.certificado{
+    width:240px;
+    height:160px;
+    cursor:pointer;
+    border-radius:15px;
+    overflow:hidden;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(0,255,255,0.3);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    transition: transform .4s, box-shadow .4s, border .4s;
+}
+
+.certificado img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform .4s;
+}
+
+.certificado:hover{
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 25px #0ff, 0 0 40px #0ff55;
+    border: 2px solid #0ff;
+}
+
+/* Modal */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter: blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    animation:fadeIn .4s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.modal-content{
+    background: rgba(10,20,40,0.95);
+    padding:25px;
+    border-radius:20px;
+    max-width:80%;
+    max-height:85%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    border: 1px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    animation:zoomIn .4s;
+}
+
+@keyframes zoomIn{
+    from{transform:scale(0.8);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+/* Botão fechar */
+.fechar{
+    position:absolute;
+    top:-2px;
+    right:20px;
+    font-size:26px;
+    cursor:pointer;
+    color:red;
+    text-shadow:0 0 5px red,0 0 10px red;
+    transition: transform .2s;
+}
+
+.fechar:hover{
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* Imagem ampliada */
+.modal img{
+    max-width:100%;
+    max-height:60vh;
+    border-radius:12px;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff55;
+}
+
+/* Descrição rolável */
+.descricao{
+    margin-top:20px;
+    max-height:180px;
+    overflow-y:auto;
+    background: rgba(0,0,0,0.3);
+    padding:15px;
+    border-radius:12px;
+    width:100%;
+    text-align:left;
+    color:#0ff;
+    border:1px solid #0ff;
+    scrollbar-width: thin;
+    scrollbar-color: #0ff transparent;
+}
+
+.descricao::-webkit-scrollbar{
+    width:8px;
+}
+
+.descricao::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.descricao::-webkit-scrollbar-thumb{
+    background:#0ff;
+    border-radius:4px;
+}
+</style>
+</head>
+<body>
+
+<h1>Certificados</h1>
+
+<div class="galeria">
+
+    <div class="certificado"
+         data-img="militar/cert1.jpg"
+         data-desc="Na quinta série, recebi meu certificado de participação no PROERD, programa no qual um policial visitou nossa sala durante um ano para nos ensinar sobre prevenção às drogas, tomada de decisões conscientes e como agir diante de situações envolvendo substâncias ilícitas. Esse primeiro contato com profissionais da área de segurança foi uma experiência marcante e inspiradora para mim. Sou grato por esse aprendizado, que reforçou valores importantes e contribuiu para que eu seguisse um caminho saudável e responsável.">
+        <img src="militar/cert1.jpg">
+    </div>
+
+    <div class="certificado"
+         data-img="militar/cert2.jpg"
+         data-desc="No 9º ano do Ensino Fundamental, recebi meu primeiro certificado no Colégio Cívico-Militar, marcando um momento significativo de superação pessoal e desenvolvimento de liderança. Na época, eu era bastante tímido em público e decidi me voluntariar para hastear a bandeira durante a execução do Hino Nacional — função normalmente atribuída por seleção interna. Ao demonstrar iniciativa e coragem, fui escolhido e ainda incentivei outro aluno a participar, passando a desempenhar essa responsabilidade ao longo dos anos. Sendo marcado como o primeiro voluntario para hastrar a bandeira do Brasil. 
+    O que começou como um desafio pessoal para vencer a timidez tornou-se um reconhecimento constante dentro da instituição, rendendo-me o apelido de “o cara da bandeira” e, posteriormente, o título de guarda-bandeira oficial do colégio. A partir daí, representei a escola em cerimônias e eventos cívicos, fortalecendo valores como disciplina, compromisso e espírito de liderança.">
+        <img src="militar/cert2.jpg">
+    </div>
+    
+    <div class="certificado"
+         data-img="militar/cert3.jpg"
+         data-desc="Recebi este certificado em reconhecimento não apenas pela atuação no hasteamento da bandeira, mas também pelo meu destaque em solenidades de formatura. Fui elogiado pela execução do Hino Nacional com excelente entonação vocal, além de demonstrar postura cívico-militar exemplar, disciplina e precisão no cumprimento de comandos. Essa conquista reflete meu comprometimento com a excelência, respeito às tradições e dedicação às responsabilidades assumidas.">
+        <img src="militar/cert3.jpg">
+    </div>
+    
+    
+    <div class="certificado"
+         data-img="militar/cert4.jpg"
+         data-desc="Este certificado foi uma conquista especialmente marcante e inesperada. Durante uma manhã comum de aula, em uma cerimônia realizada na quadra devido à chuva, fui surpreendido com essa homenagem em reconhecimento à minha iniciativa e participação ativa nas atividades propostas pelo colégio. Na ocasião, fui o único aluno premiado e tive a honra de ser citado como exemplo para incentivar outros estudantes, reforçando valores como proatividade, dedicação e compromisso com a excelência.">
+        <img src="militar/cert4.jpg">
+    </div>
+    
+    
+    <div class="certificado"
+         data-img="militar/cert5.jpg"
+         data-desc="Este certificado foi concedido após eu e um colega sermos convidados pessoalmente para atuar como alunos monitores no período da tarde. Inicialmente, nossa função seria apenas auxiliar na organização e supervisão, porém superamos as expectativas ao assumir responsabilidades adicionais. Entre nossas contribuições, destacam-se a montagem completa dos computadores da sala de informática, apoio na instalação de câmeras de segurança, cuidado com a organização e higiene do ambiente, além do suporte em aulas de robótica e no uso de computadores durante atividades pedagógicas.
+Fomos reconhecidos por nossa dedicação, senso de responsabilidade e comprometimento, sendo frequentemente os monitores que permaneciam além do horário até a conclusão das tarefas. Essa experiência evidenciou nossa proatividade, trabalho em equipe e disposição para contribuir ativamente com o funcionamento e desenvolvimento das atividades escolares. Já ficamos das 07:00 até as 19:00 no colégio para ajudar na organização, e para mim isso nunca será visto como tempo perdido.">
+        <img src="militar/cert5.jpg">
+    </div>
+    
+    
+    <div class="certificado"
+         data-img="militar/cert6.jpg"
+         data-desc="Este certificado foi concedido em reconhecimento à minha assiduidade exemplar, alcançando 100% de presença durante o primeiro trimestre letivo. Nos trimestres seguintes, não mantive a frequência total devido a viagens relacionadas ao meu curso de robótica, mas ainda assim sempre mantive uma reputação de compromisso e responsabilidade, sendo reconhecido como um aluno dedicado e pontual, jamais associado a faltas injustificadas.">
+        <img src="militar/cert6.jpg">
+    </div>
+    
+    
+    <div class="certificado"
+         data-img="militar/cert7.jpg"
+         data-desc="Este certificado representa uma conquista desafiadora e extremamente significativa: a conclusão de um ano de serviço voluntário no Tiro de Guerra. Durante esse período, tive a oportunidade de aprimorar ainda mais habilidades como atenção, foco, agilidade e senso de compromisso, mantendo sempre pontualidade exemplar e conduta disciplinada. Permaneci fiel aos valores e princípios que desenvolvi no colégio cívico-militar, agora fortalecidos na vivência prática junto ao Exército Brasileiro. Essa experiência reforçou meu espírito de responsabilidade, honra e dedicação ao dever.">
+        <img src="militar/cert7.jpg">
+    </div>
+    
+    
+    <div class="certificado"
+         data-img="militar/cert8.jpg"
+         data-desc="Durante meu período no Tiro de Guerra, participei de um minicurso de empregabilidade ministrado por uma excelente instrutora, no qual adquiri conhecimentos práticos e essenciais para o ambiente profissional. Fui capacitado em elaboração de currículos, comunicação formal por e-mail, trabalho em equipe, responsabilidade no cumprimento de demandas e atenção rigorosa aos detalhes de projetos, visando sempre a excelência e a prevenção de erros. Essa formação contribuiu significativamente para o desenvolvimento das minhas competências organizacionais, comunicativas e profissionais.">
+        <img src="militar/cert8.jpg">
+    </div>
+    
+    
+    
+
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="fechar" id="fechar">✖</span>
+        <img id="modalImg">
+        <div class="descricao" id="modalDesc"></div>
+    </div>
+</div>
+
+<script>
+const certificados = document.querySelectorAll(".certificado");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const modalDesc = document.getElementById("modalDesc");
+const fechar = document.getElementById("fechar");
+
+certificados.forEach(card=>{
+    card.addEventListener("click",()=>{
+        modal.style.display="flex";
+        modalImg.src = card.dataset.img;
+        modalDesc.textContent = card.dataset.desc;
+    });
+});
+
+fechar.onclick = ()=> modal.style.display="none";
+
+modal.onclick = e=>{
+    if(e.target===modal){
+        modal.style.display="none";
+    }
+};
+</script>
+
+</body>
+</html>

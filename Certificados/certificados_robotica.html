@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Certificados Futuristas</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    margin:0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg,#0f0f1a,#0a0a1f);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* Partículas de fundo */
+body::before{
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle, rgba(0,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index:-1;
+}
+
+/* Título futurista */
+h1{
+    text-align:center;
+    font-size:3em;
+    margin:30px 0 10px;
+    color:#0ff;
+    text-shadow:0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+/* Galeria */
+.galeria{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+    padding:20px;
+}
+
+.certificado{
+    width:240px;
+    height:160px;
+    cursor:pointer;
+    border-radius:15px;
+    overflow:hidden;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(0,255,255,0.3);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    transition: transform .4s, box-shadow .4s, border .4s;
+}
+
+.certificado img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform .4s;
+}
+
+.certificado:hover{
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 25px #0ff, 0 0 40px #0ff55;
+    border: 2px solid #0ff;
+}
+
+/* Modal */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter: blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    animation:fadeIn .4s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.modal-content{
+    background: rgba(10,20,40,0.95);
+    padding:25px;
+    border-radius:20px;
+    max-width:80%;
+    max-height:85%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    border: 1px solid #0ff;
+    box-shadow: 0 0 20px #0ff;
+    animation:zoomIn .4s;
+}
+
+@keyframes zoomIn{
+    from{transform:scale(0.8);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+/* Botão fechar */
+.fechar{
+    position:absolute;
+    top:-2px;
+    right:20px;
+    font-size:26px;
+    cursor:pointer;
+    color:red;
+    text-shadow:0 0 5px red,0 0 10px red;
+    transition: transform .2s;
+}
+
+.fechar:hover{
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* Imagem ampliada */
+.modal img{
+    max-width:100%;
+    max-height:60vh;
+    border-radius:12px;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff55;
+}
+
+/* Descrição rolável */
+.descricao{
+    margin-top:20px;
+    max-height:180px;
+    overflow-y:auto;
+    background: rgba(0,0,0,0.3);
+    padding:15px;
+    border-radius:12px;
+    width:100%;
+    text-align:left;
+    color:#0ff;
+    border:1px solid #0ff;
+    scrollbar-width: thin;
+    scrollbar-color: #0ff transparent;
+}
+
+.descricao::-webkit-scrollbar{
+    width:8px;
+}
+
+.descricao::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.descricao::-webkit-scrollbar-thumb{
+    background:#0ff;
+    border-radius:4px;
+}
+</style>
+</head>
+<body>
+
+<h1>Certificados</h1>
+
+<div class="galeria">
+
+    <div class="certificado"
+         data-img="robótica/cert1.jpg"
+         data-desc="Este certificado foi concedido pela conclusão da carga horária inicial de 40 horas da Oficina de Robótica Básica, etapa que marcou o início da minha formação estruturada na área. Durante essa jornada, desenvolvi fundamentos essenciais de lógica, tecnologia e resolução de problemas, consolidando bases importantes para meu avanço contínuo em robótica e programação.">
+        <img src="robótica/cert1.jpg">
+    </div>
+
+    <div class="certificado"
+         data-img="robótica/cert2.jpg"
+         data-desc="Este certificado foi concedido pela conclusão da segunda carga horária de 40 horas da Oficina de Robótica Básica, representando a continuidade do meu aprimoramento técnico e prático na área. Nessa etapa, aprofundei conhecimentos, desenvolvi maior autonomia na execução de atividades e fortalecei habilidades de raciocínio lógico, resolução de problemas e aplicação de conceitos tecnológicos.">
+        <img src="robótica/cert2.jpg">
+    </div>
+    
+    
+    <div class="certificado"
+         data-img="robótica/cert3.jpg"
+         data-desc="Este certificado foi concedido pela conclusão da terceira carga horária de 40 horas da Oficina de Robótica Básica, consolidando uma etapa importante do meu desenvolvimento técnico. Ao longo desse ciclo, aperfeiçoei competências práticas e analíticas, fortaleci o raciocínio lógico e ampliei minha capacidade de aplicar conceitos tecnológicos com autonomia, precisão e responsabilidade.">
+        <img src="robótica/cert3.jpg">
+    </div>
+
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="fechar" id="fechar">✖</span>
+        <img id="modalImg">
+        <div class="descricao" id="modalDesc"></div>
+    </div>
+</div>
+
+<script>
+const certificados = document.querySelectorAll(".certificado");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const modalDesc = document.getElementById("modalDesc");
+const fechar = document.getElementById("fechar");
+
+certificados.forEach(card=>{
+    card.addEventListener("click",()=>{
+        modal.style.display="flex";
+        modalImg.src = card.dataset.img;
+        modalDesc.textContent = card.dataset.desc;
+    });
+});
+
+fechar.onclick = ()=> modal.style.display="none";
+
+modal.onclick = e=>{
+    if(e.target===modal){
+        modal.style.display="none";
+    }
+};
+</script>
+
+</body>
+</html>

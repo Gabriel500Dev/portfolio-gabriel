@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pontuação</title>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: radial-gradient(circle at top,#0f2027,#05070d 70%);
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    padding:40px 0; /* espaço superior e inferior */
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.card{
+    background: rgba(0,0,0,0.55);
+    padding:25px;
+    border-radius:20px;
+    width:250px;
+    box-shadow:
+        0 0 20px #00f7ff,
+        0 0 40px #ff00f7,
+        inset 0 0 15px rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+}
+
+.nome{
+    font-size:22px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+    text-shadow:0 0 10px #00f7ff;
+}
+
+.pontos{
+    font-size:18px;
+    margin-bottom:15px;
+    color:#00ffd5;
+    text-shadow:0 0 10px #00ffd5;
+}
+
+.barra-container{
+    position:relative;
+    height:35px;
+    background:#111;
+    border-radius:30px;
+    overflow:hidden;
+    border:2px solid #00f7ff;
+    box-shadow:0 0 15px #00f7ff;
+}
+
+.barra{
+    height:100%;
+    background: linear-gradient(90deg,#00f7ff,#ff00f7,#00ff88);
+    box-shadow:0 0 20px #00f7ff;
+}
+
+.texto{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    text-shadow:0 0 10px black;
+}
+
+.trofeu{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:20px;
+    filter: drop-shadow(0 0 6px gold);
+}
+
+.top1{
+    border:2px solid gold;
+    box-shadow:
+        0 0 25px gold,
+        0 0 60px orange,
+        inset 0 0 15px rgba(255,255,255,0.08);
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="placar"></div>
+
+<script>
+const max = 1000;
+
+const players = [
+    {nome:"Alien", pontos:4},
+    {nome:"Dark", pontos:4},
+    {nome:"Mandy", pontos:4},
+    {nome:"CzKaique", pontos:8},
+    {nome:"Ice", pontos:5},
+    {nome:"Kakaroto", pontos:34},
+    {nome:"Cronos", pontos:6}
+    
+];
+
+players.sort((a,b)=> b.pontos - a.pontos);
+
+const container = document.getElementById("placar");
+
+players.forEach((p,index)=>{
+    let porcentagem = (p.pontos/max)*100;
+
+    let card = document.createElement("div");
+    card.className="card";
+    if(index===0) card.classList.add("top1");
+
+    card.innerHTML = `
+        <div class="nome">${index+1}º — ${p.nome}</div>
+        <div class="pontos">${p.pontos} pontos</div>
+
+        <div class="barra-container">
+            <div class="barra" style="width:${porcentagem}%"></div>
+            <div class="texto">${p.pontos} / ${max}</div>
+            <div class="trofeu">🏆</div>
+        </div>
+    `;
+
+    container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
