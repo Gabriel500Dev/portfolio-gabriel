@@ -1,263 +1,358 @@
-<!DOCTYPE html><html lang="pt-BR">
+
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GabrielPrime | Quantum Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>
-:root{
-  --bg1:#020617;
-  --bg2:#0a0f2c;
-  --neon:#00f0ff;
-  --neon2:#8b5cf6;
-  --glass:rgba(255,255,255,0.05);
+<title>Currículo - Fabiano Roberto Teixeira</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  min-height:100vh;
-  font-family:'Inter',sans-serif;
-  color:white;
-  background:radial-gradient(circle at 20% 30%,#0f1b4d,transparent 40%),
-             radial-gradient(circle at 80% 70%,#1a004d,transparent 40%),
-             linear-gradient(160deg,var(--bg1),var(--bg2));
-  overflow-x:hidden; overflow-y:auto;
+@page {
+    size: A4 portrait;
+    margin: 0;
 }
 
-/* GRID TECH BACKGROUND */
-body::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size:40px 40px;
-  mask-image: radial-gradient(circle, black 30%, transparent 80%);
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e9edf2;
+    color: #303846;
+    padding: 20px;
+    line-height: 1.4;
 }
 
-.container{
-  position:relative;
-  z-index:2;
-  min-height:100vh;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:60px 0;
+.curriculo {
+    width: 210mm;
+    height: 297mm;
+    margin: auto;
+    background: white;
+    display: grid;
+    grid-template-columns: 67mm 1fr;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
 }
 
-.panel{
-  width:95%;
-  max-width:1100px;
-  border-radius:30px;
-  padding:50px;
-  background:var(--glass);
-  backdrop-filter:blur(25px);
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 0 80px rgba(0,255,255,0.15);
-  text-align:center;
-  animation:spawn 1s ease;
+/* LATERAL */
+
+.lateral {
+    background: #172d49;
+    color: white;
+    padding: 25px 20px;
 }
 
-@keyframes spawn{
-  from{opacity:0; transform:scale(.9) translateY(40px)}
-  to{opacity:1; transform:scale(1) translateY(0)}
+.foto {
+    width: 145px;
+    height: 165px;
+    margin: 0 auto 22px;
+    border: 3px solid white;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #dce3eb;
+    color: #172d49;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
 }
 
-.avatar{
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  border:3px solid var(--neon);
-  box-shadow:0 0 25px var(--neon);
-  object-fit:cover;
-  margin-bottom:20px;
-  transition:.4s;
-}
-.avatar:hover{
-  transform:scale(1.08) rotate(2deg);
-  box-shadow:0 0 45px var(--neon2);
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-h1{
-  font-family:'Orbitron',sans-serif;
-  font-size:1.4rem;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,var(--neon),var(--neon2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.lateral h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #5d9ee6;
 }
 
-.typing{
-  margin-top:12px;
-  opacity:.8;
-  font-size:1.1rem;
-  height:24px;
+.lateral p {
+    font-size: 12px;
+    margin-bottom: 11px;
+    overflow-wrap: anywhere;
 }
 
-.nav{
-  margin-top:35px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:18px;
+.lateral strong {
+    color: #a9d0ff;
+    display: block;
+    font-size: 11px;
+    margin-bottom: 2px;
 }
 
-.tab{
-  padding:14px 28px;
-  border-radius:16px;
-  cursor:pointer;
-  font-weight:600;
-  letter-spacing:.5px;
-  background:linear-gradient(145deg,#0a0f2c,#020617);
-  border:1px solid rgba(255,255,255,0.08);
-  transition:.35s;
-  position:relative;
-  overflow:hidden;
+/* CONTEÚDO */
+
+.conteudo {
+    padding: 35px 29px;
 }
 
-.tab::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(0,255,255,0.4),transparent);
-  opacity:0;
-  transition:.4s;
+.cabecalho {
+    border-bottom: 3px solid #315c8b;
+    padding-bottom: 17px;
+    margin-bottom: 23px;
 }
 
-.tab:hover::after{opacity:1}
-.tab:hover{transform:translateY(-4px) scale(1.05)}
-
-.section{
-  margin-top:40px;
-  display:none;
-  text-align:left;
-  animation:fade .6s ease;
+.cabecalho h1 {
+    color: #172d49;
+    font-size: 26px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px)}
-  to{opacity:1; transform:translateY(0)}
+.cabecalho p {
+    color: #52769d;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: .8px;
+    text-transform: uppercase;
 }
 
-.card{
-  padding:18px 22px;
-  margin-bottom:15px;
-  border-radius:16px;
-  background:rgba(0,0,0,0.35);
-  border:1px solid rgba(255,255,255,0.06);
-  backdrop-filter:blur(10px);
-  transition:.3s;
+.secao {
+    margin-bottom: 23px;
 }
 
-.card:hover{
-  transform:scale(1.03);
-  border-color:var(--neon);
-  box-shadow:0 0 20px rgba(0,255,255,0.2);
+.secao h2 {
+    font-size: 15px;
+    color: #172d49;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    border-bottom: 2px solid #dce5ef;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
 }
 
-footer{
-  margin-top:35px;
-  opacity:.5;
-  font-size:.9rem;
+.secao p {
+    font-size: 12.5px;
+    text-align: justify;
+    margin-bottom: 8px;
 }
-  
-  a, a:visited, a:hover, a:active{
-  text-decoration:none;
-  color:inherit;
+
+.experiencia {
+    margin-bottom: 17px;
+    padding-left: 12px;
+    border-left: 3px solid #5d9ee6;
 }
-  </style>
-  
+
+.experiencia h3 {
+    color: #243e5d;
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.empresa {
+    color: #52769d;
+    font-size: 12px !important;
+    font-weight: bold;
+    margin-bottom: 6px !important;
+}
+
+.experiencia p {
+    font-size: 12px;
+}
+
+.lista {
+    padding-left: 17px;
+}
+
+.lista li {
+    font-size: 12.5px;
+    margin-bottom: 6px;
+}
+
+/* IMPRESSÃO */
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .curriculo {
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+/* CELULAR */
+
+@media screen and (max-width: 700px) {
+    body {
+        padding: 0;
+    }
+
+    .curriculo {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+    }
+
+    .lateral {
+        padding: 25px;
+    }
+
+    .conteudo {
+        padding: 28px 24px;
+    }
+}
+</style>
 </head>
+
 <body>
-  
-  <div class="container">
-  <div class="panel"><img src="foto.jpg" class="avatar" onclick="swapPic()">
 
-<h1>Gabriel Fabiano Teixeira</h1>
-<div class="typing" id="typing" style="color: cyan;"></div>
-    <br>
-    
-        <ol>
-      <li style="border: 2px solid cyan; font-size: 9px;">Idade: 19</li>
-      <li style="border: 2px solid cyan; font-size: 9px;">Idiomas: Portugues, Ingles.</li>
-      
-    </ol>
-    
-       <br>
- 
-    <h3>Editor de vídeos dedicado, comprometido em transformar ideias em conteúdo visual de impacto.</h3>
- <br>
-        <h4>Verifique as seções abaixo desses botões.</h4>
-   <br>
-    
-    <div class="nav">
-  <div class="tab" onclick="openTab('p')">Projetos</div>
-  <div class="tab" onclick="openTab('c')">Certificados</div>
-  </div>
+<div class="curriculo">
 
-<div id="p" class="section">
-  <a href="Projetos/projetos_dev.html"><div class="card">💻 Programação</div></a>
-  <a href="Projetos/projetos_videos.html"><div class="card">📽 Edição de vídeos</div></a>
-  </div>
+    <aside class="lateral">
 
-<div id="c" class="section">
-  <a href="Certificados/certificados_dev.html"><div class="card">📜 Programação</div></a>
-  <a href="Certificados/certificados_vídeos.html"><div class="card">📜 Edição de Vídeo</div></a>
-  <a href="Certificados/certificados_robotica.html"><div class="card">📜 Tecnologia & Lógica(Robótica)</div></a>
-  <a href="Certificados/certificados_militar.html"><div class="card">📜 Militar</div></a>
-  
+        <div class="foto">
+            <img
+                src="foto2.jpg"
+                alt="Foto de Fabiano Roberto Teixeira"
+                onerror="this.style.display='none';
+                this.parentElement.textContent='ESPAÇO PARA FOTO';"
+            >
+        </div>
+
+        <h2>Contato</h2>
+
+        <p>
+            <strong>Telefone / WhatsApp</strong>
+            +55 (43) 98755-5524
+        </p>
+
+        <p>
+            <strong>Localização</strong>
+            Santo Antônio da Platina - PR
+        </p>
+
+        <h2>Informações</h2>
+
+        <p>
+            <strong>Idade</strong>
+            43 anos
+        </p>
+
+        <p>
+            <strong>Estado civil</strong>
+            Casado
+        </p>
+
+        <h2>Habilitação</h2>
+
+        <p>
+            <strong>CNH</strong>
+            Categorias A, B e D
+        </p>
+
+        <p>
+            <strong>Veículos</strong>
+            Motocicletas, automóveis e caminhões.
+        </p>
+
+        <h2>Escolaridade</h2>
+
+        <p>
+            Ensino Fundamental – até o 5º ano.
+        </p>
+
+    </aside>
+
+
+    <main class="conteudo">
+
+        <header class="cabecalho">
+            <h1>Fabiano Roberto Teixeira</h1>
+            <p>Motorista | Encarregado de Produção</p>
+        </header>
+
+
+        <section class="secao">
+
+            <h2>Perfil Profissional</h2>
+
+            <p>
+                Profissional com experiência nas áreas de
+                transporte e produção de maravalha.
+                Atuou como motorista e encarregado de
+                produção, possuindo CNH categorias A, B e D.
+                Perfil comprometido, responsável e com
+                experiência em atividades operacionais.
+            </p>
+
+        </section>
+
+
+        <section class="secao">
+
+            <h2>Experiência Profissional</h2>
+
+            <div class="experiencia">
+
+                <h3>Encarregado de Produção de Maravalha</h3>
+
+                <p class="empresa">
+                    Paraíso — 4 anos
+                </p>
+
+                <p>
+                    Atuação no acompanhamento e organização
+                    das atividades de produção de maravalha,
+                    contribuindo para o funcionamento e
+                    andamento da rotina produtiva.
+                </p>
+
+            </div>
+
+
+            <div class="experiencia">
+
+                <h3>Motorista de Transporte de Maravalha</h3>
+
+                <p class="empresa">
+                    Sítio Paraíso — 2 anos
+                </p>
+
+                <p>
+                    Experiência no transporte de maravalha,
+                    realizando o deslocamento de materiais
+                    e atendendo às demandas operacionais.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="secao">
+
+            <h2>Habilidades e Competências</h2>
+
+            <ul class="lista">
+                <li>Experiência em produção de maravalha.</li>
+                <li>Experiência como encarregado de produção.</li>
+                <li>Experiência com transporte de materiais.</li>
+                <li>CNH categorias A, B e D.</li>
+                <li>Organização e responsabilidade.</li>
+                <li>Comprometimento profissional.</li>
+            </ul>
+
+        </section>
+
+    </main>
+
 </div>
 
-    
-    <br>
-    
- <br>
-
-    <br>
-    
-
-<footer>© GabrielPrime</footer>
-
-  </div>
-</div>
-  
-  
-  
-  <script>
-
-// TABS
-function openTab(id){
-  document.querySelectorAll('.section').forEach(s=>s.style.display='none');
-  document.getElementById(id).style.display='block';
-}
-
-// TYPING EFFECT
-const words=[
-  "Programador",
-  "Editor de Vídeos"
-];
-let i=0,j=0,cur="",del=false;
-function type(){
-  cur=words[i];
-  if(!del){
-    document.getElementById("typing").textContent=cur.substring(0,j++);
-    if(j>cur.length+10) del=true;
-  }else{
-    document.getElementById("typing").textContent=cur.substring(0,j--);
-    if(j==0){del=false;i=(i+1)%words.length}
-  }
-  setTimeout(type,del?40:80);
-}
-type();
-
-
-function swapPic(){
-  const img=document.getElementById('profilePic');
-  const temp=img.src;
-  img.src=img.dataset.alt;
-  img.dataset.alt=temp;
-}
-
-</script></body>
+</body>
 </html>
