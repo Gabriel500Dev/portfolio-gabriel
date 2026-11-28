@@ -4,207 +4,385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Currículo - Fabiano Roberto Teixeira</title>
+<title>Gabriel Fabiano Teixeira | Currículo</title>
 
 <style>
+:root {
+    --navy: #172b40;
+    --blue: #254c68;
+    --accent: #16a58b;
+    --text: #263746;
+    --muted: #687987;
+    --line: #dce5ea;
+    --light: #f3f7f9;
+}
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-@page {
-    size: A4 portrait;
-    margin: 0;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #e9edf2;
-    color: #303846;
-    padding: 20px;
-    line-height: 1.4;
+    margin: 0;
+    padding: 30px;
+    background: #e9eef2;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
 }
 
-.curriculo {
+.cv {
     width: 210mm;
-    height: 297mm;
+    min-height: 297mm;
     margin: auto;
     background: white;
-    display: grid;
-    grid-template-columns: 67mm 1fr;
+    box-shadow: 0 12px 45px rgba(20,40,60,.12);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,.12);
 }
 
-/* LATERAL */
+/* CABEÇALHO */
 
-.lateral {
-    background: #172d49;
+.header {
+    background: var(--navy);
     color: white;
-    padding: 25px 20px;
-}
-
-.foto {
-    width: 145px;
-    height: 165px;
-    margin: 0 auto 22px;
-    border: 3px solid white;
-    border-radius: 7px;
-    overflow: hidden;
-    background: #dce3eb;
-    color: #172d49;
+    padding: 34px 38px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 12px;
+    justify-content: space-between;
+    gap: 25px;
+    position: relative;
 }
 
-.foto img {
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 38px;
+    width: 65px;
+    height: 4px;
+    background: var(--accent);
+}
+
+.header-info {
+    flex: 1;
+}
+
+.header-label {
+    color: #83d9c7;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.header h1 {
+    font-size: 31px;
+    line-height: 1.12;
+    letter-spacing: -.7px;
+    margin: 0;
+    font-weight: 750;
+}
+
+.header-subtitle {
+    color: #c3d1dc;
+    font-size: 11px;
+    margin-top: 12px;
+    letter-spacing: 1.1px;
+}
+
+.photo {
+    width: 112px;
+    height: 132px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    padding: 4px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(131,217,199,.8);
+}
+
+.photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 6px;
 }
 
-.lateral h2 {
-    font-size: 14px;
-    text-transform: uppercase;
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 6px;
+    color: #c3d1dc;
+    background: rgba(255,255,255,.06);
+    font-size: 9px;
     letter-spacing: 1px;
-    margin: 22px 0 10px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #5d9ee6;
 }
 
-.lateral p {
-    font-size: 12px;
-    margin-bottom: 11px;
+/* CONTATOS */
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    padding: 17px 38px;
+    background: #f3f7f9;
+    border-bottom: 1px solid var(--line);
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9.5px;
+    color: #526473;
     overflow-wrap: anywhere;
 }
 
-.lateral strong {
-    color: #a9d0ff;
-    display: block;
-    font-size: 11px;
-    margin-bottom: 2px;
+.contact-icon {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 12px;
 }
 
 /* CONTEÚDO */
 
-.conteudo {
-    padding: 35px 29px;
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 29px 38px 24px;
 }
 
-.cabecalho {
-    border-bottom: 3px solid #315c8b;
-    padding-bottom: 17px;
-    margin-bottom: 23px;
+.section {
+    margin-bottom: 24px;
+    break-inside: avoid;
 }
 
-.cabecalho h1 {
-    color: #172d49;
-    font-size: 26px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.cabecalho p {
-    color: #52769d;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: .8px;
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 13px;
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
 }
 
-.secao {
-    margin-bottom: 23px;
+.section-heading::before {
+    content: "";
+    width: 4px;
+    height: 17px;
+    background: var(--accent);
+    border-radius: 3px;
 }
 
-.secao h2 {
-    font-size: 15px;
-    color: #172d49;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    border-bottom: 2px solid #dce5ef;
-    padding-bottom: 6px;
-    margin-bottom: 12px;
+.section-heading::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: var(--line);
 }
 
-.secao p {
-    font-size: 12.5px;
-    text-align: justify;
-    margin-bottom: 8px;
+p {
+    font-size: 10.5px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin: 0;
 }
 
-.experiencia {
-    margin-bottom: 17px;
-    padding-left: 12px;
-    border-left: 3px solid #5d9ee6;
-}
-
-.experiencia h3 {
-    color: #243e5d;
-    font-size: 13px;
-    margin-bottom: 3px;
-}
-
-.empresa {
-    color: #52769d;
-    font-size: 12px !important;
-    font-weight: bold;
-    margin-bottom: 6px !important;
-}
-
-.experiencia p {
+.job-title {
     font-size: 12px;
+    color: var(--navy);
+    font-weight: 750;
+    margin-bottom: 4px;
 }
 
-.lista {
-    padding-left: 17px;
+.job-subtitle {
+    font-size: 9px;
+    color: var(--accent);
+    font-weight: 650;
+    margin-bottom: 9px;
 }
 
-.lista li {
-    font-size: 12.5px;
-    margin-bottom: 6px;
+ul {
+    margin: 7px 0 0;
+    padding-left: 16px;
+}
+
+li {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.65;
+    padding-left: 3px;
+    margin-bottom: 4px;
+}
+
+.education {
+    padding: 10px 12px;
+    margin-bottom: 9px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+.education strong {
+    display: block;
+    color: var(--navy);
+    font-size: 10.5px;
+}
+
+.education span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    margin-top: 4px;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.course {
+    padding: 10px;
+    background: var(--light);
+    border-radius: 5px;
+    border-left: 3px solid var(--accent);
+    color: var(--text);
+    font-size: 9.5px;
+    font-weight: 650;
+}
+
+.course small {
+    display: block;
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.skill {
+    padding: 7px 9px;
+    background: var(--light);
+    border: 1px solid #e5ecef;
+    border-radius: 4px;
+    font-size: 9px;
+    color: #405566;
+}
+
+.language {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.language strong {
+    color: var(--navy);
+}
+
+.language span {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.profile-box {
+    padding: 13px;
+    background: var(--navy);
+    border-radius: 6px;
+    color: #e2eaf0;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.profile-box strong {
+    color: #83d9c7;
+}
+
+/* RODAPÉ */
+
+.footer {
+    margin: 0 38px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    color: #87949e;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* IMPRESSÃO */
+
+@page {
+    size: A4;
+    margin: 0;
+}
 
 @media print {
     body {
         padding: 0;
         background: white;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
     }
 
-    .curriculo {
-        margin: 0;
+    .cv {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
         box-shadow: none;
     }
 }
-
-/* CELULAR */
 
 @media screen and (max-width: 700px) {
     body {
         padding: 0;
     }
 
-    .curriculo {
+    .cv {
         width: 100%;
-        height: auto;
-        min-height: 100vh;
+    }
+
+    .header {
+        padding: 27px 22px;
+        gap: 12px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .photo {
+        width: 88px;
+        height: 108px;
+    }
+
+    .contacts {
+        padding: 15px 22px;
+    }
+
+    .content {
         grid-template-columns: 1fr;
+        padding: 25px 22px;
+        gap: 0;
     }
 
-    .lateral {
-        padding: 25px;
-    }
-
-    .conteudo {
-        padding: 28px 24px;
+    .footer {
+        margin: 0 22px;
     }
 }
 </style>
@@ -212,141 +390,240 @@ body {
 
 <body>
 
-<div class="curriculo">
+<div class="cv">
 
-    <aside class="lateral">
+    <header class="header">
 
-        <div class="foto">
-            <img
-                src="foto2.jpg"
-                alt="Foto de Fabiano Roberto Teixeira"
-                onerror="this.style.display='none';
-                this.parentElement.textContent='ESPAÇO PARA FOTO';"
-            >
+        <div class="header-info">
+            <div class="header-label">
+                CURRÍCULO PROFISSIONAL
+            </div>
+
+            <h1>
+                Gabriel Fabiano<br>
+                Teixeira
+            </h1>
+
+            <div class="header-subtitle">
+                TECNOLOGIA · CRIATIVIDADE · DESENVOLVIMENTO
+            </div>
         </div>
 
-        <h2>Contato</h2>
+        <div class="photo">
 
-        <p>
-            <strong>Telefone / WhatsApp</strong>
-            +55 (43) 99875-5524
-        </p>
+            <!--
+            PARA ADICIONAR SUA FOTO:
 
-        <p>
-            <strong>Localização</strong>
-            Santo Antônio da Platina - PR
-        </p>
+            Substitua o conteúdo abaixo por:
 
-        <h2>Informações</h2>
+            <img src="foto.jpg" alt="Gabriel Fabiano Teixeira">
 
-        <p>
-            <strong>Idade</strong>
-            43 anos
-        </p>
+            -->
 
-        <p>
-            <strong>Estado civil</strong>
-            Casado
-        </p>
-
-        <h2>Habilitação</h2>
-
-        <p>
-            <strong>CNH</strong>
-            Categoria D
-        </p>
-
-        
-
-        <h2>Escolaridade</h2>
-
-        <p>
-            Ensino Fundamental.
-        </p>
-
-    </aside>
-
-
-    <main class="conteudo">
-
-        <header class="cabecalho">
-            <h1>Fabiano Roberto Teixeira</h1>
-  </header>
-
-
-        <section class="secao">
-
-            <h2>Perfil Profissional</h2>
-
-            <p>
-                Profissional com experiência nas áreas de
-                transporte e produção de maravalha.
-                Atuou como motorista e encarregado de
-                produção, possuindo CNH categoria D.
-                Perfil comprometido, responsável e com
-                experiência em atividades operacionais.
-            </p>
-
-        </section>
-
-
-        <section class="secao">
-
-            <h2>Experiência Profissional</h2>
-
-            <div class="experiencia">
-
-                <h3>Encarregado de Produção de Maravalha</h3>
-
-                <p class="empresa">
-                    Paraíso — 4 anos
-                </p>
-
-                <p>
-                    Atuação no acompanhamento e organização
-                    das atividades de produção de maravalha,
-                    contribuindo para o funcionamento e
-                    andamento da rotina produtiva.
-                </p>
+            <div class="photo-placeholder">
+                <img src="foto.jpg" alt="Gabriel Fabiano Teixeira">
 
             </div>
 
+        </div>
 
-            <div class="experiencia">
+    </header>
 
-                <h3>Motorista de Transporte de Maravalha</h3>
+    <div class="contacts">
 
-                <p class="empresa">
-                    Sítio Paraíso — 2 anos
-                </p>
+        <div class="contact">
+            <span class="contact-icon">⌖</span>
+            Santo Antônio da Platina – PR
+        </div>
+
+        <div class="contact">
+            <span class="contact-icon">☎</span>
+            +55 99873-1072
+        </div>
+
+        <div class="contact">
+            <span class="contact-icon">✉</span>
+            bielgabrielfabianoteixeira@gmail.com
+        </div>
+
+    </div>
+
+    <main class="content">
+
+        <!-- COLUNA ESQUERDA -->
+
+        <div>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Perfil profissional
+                </h2>
 
                 <p>
-                    Experiência no transporte de maravalha,
-                    realizando o deslocamento de materiais
-                    e atendendo às demandas operacionais.
+                    Tenho interesse pela área de tecnologia, informática
+                    e universo dos games. Possuo conhecimentos em edição
+                    audiovisual, desenvolvimento web e lógica de programação.
+                    Busco uma oportunidade profissional para contribuir com
+                    dedicação, boa comunicação e disposição para aprender,
+                    desenvolver novas habilidades e colaborar com a equipe.
                 </p>
 
-            </div>
+            </section>
 
-        </section>
+            <section class="section">
 
+                <h2 class="section-heading">
+                    Experiência profissional
+                </h2>
 
-        <section class="secao">
+                <div class="job-title">
+                    Editor de Vídeo Freelancer
+                </div>
 
-            <h2>Habilidades e Competências</h2>
+                <div class="job-subtitle">
+                    ATUAÇÃO INDEPENDENTE
+                </div>
 
-            <ul class="lista">
-                <li>Experiência em produção de maravalha.</li>
-                <li>Experiência como encarregado de produção.</li>
-                <li>Experiência com transporte de materiais.</li>
-                <li>CNH categoria D.</li>
-                <li>Organização e responsabilidade.</li>
-                <li>Comprometimento profissional.</li>
-            </ul>
+                <ul>
+                    <li>
+                        Edição e montagem de vídeos utilizando CapCut.
+                    </li>
+                    <li>
+                        Organização de cenas, cortes e elementos audiovisuais.
+                    </li>
+                    <li>
+                        Desenvolvimento e finalização de projetos de edição.
+                    </li>
+                </ul>
 
-        </section>
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Formação acadêmica
+                </h2>
+
+                <div class="education">
+                    <strong>Ensino Médio Completo</strong>
+                    <span>Formação escolar concluída.</span>
+                </div>
+
+                <div class="education">
+                    <strong>Tiro de Guerra (TG)</strong>
+                    <span>Participação em formação militar.</span>
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Perfil pessoal
+                </h2>
+
+                <div class="profile-box">
+                    Perfil <strong>comunicativo</strong>, com facilidade
+                    para se expressar em situações de pressão.
+                    Demonstro interesse por tecnologia, capacidade de
+                    aprendizado e disposição para novos desafios.
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- COLUNA DIREITA -->
+
+        <div>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Competências
+                </h2>
+
+                <div class="skills">
+                    <span class="skill">Edição de vídeo</span>
+                    <span class="skill">CapCut</span>
+                    <span class="skill">Desenvolvimento web</span>
+                    <span class="skill">Lógica de programação</span>
+                    <span class="skill">Canva</span>
+                    <span class="skill">Boa comunicação</span>
+                    <span class="skill">Facilidade de aprendizado</span>
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Cursos complementares
+                </h2>
+
+                <div class="course-list">
+
+                    <div class="course">
+                        Edição de vídeo
+                        <small>Certificado</small>
+                    </div>
+
+                    <div class="course">
+                        Canva
+                        <small>Certificado</small>
+                    </div>
+
+                    <div class="course">
+                        Robótica
+                        <small>Certificado</small>
+                    </div>
+
+                    <div class="course">
+                        Programação
+                        <small>Certificado</small>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Idiomas
+                </h2>
+
+                <div class="language">
+                    <strong>Inglês</strong>
+                    <span>Básico</span>
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Informações adicionais
+                </h2>
+
+                <p>
+                    Interesse em tecnologia, informática, equipamentos
+                    eletrônicos e produtos relacionados ao universo gamer.
+                    Disposição para aprender e ampliar conhecimentos
+                    profissionais.
+                </p>
+
+            </section>
+
+        </div>
 
     </main>
+
+    <footer class="footer">
+        <span>Gabriel Fabiano Teixeira</span>
+        <span>Perfil profissional</span>
+    </footer>
 
 </div>
 
